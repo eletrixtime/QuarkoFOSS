@@ -20,11 +20,10 @@ git clone https://github.com/EletrixTime/QuarkoFOSS && cd QuarkoFOSS && pip inst
 ```
 Et d'aller sur `http://localhost:80`
 
+
 ## LICENSE
 
 > Ce projet est sous **licence MIT** (une copie complète de la licence est disponible dans le fichier LICENSE).
 
 
-### CERTAINES FONCTIONNALITÉS SONT DESACTIVÉES COMME LE CDN
-
-
+### CERTAINES FONCTIONNALITÉS SONT BREAK COMME LES IMAGES ETC A VOUS DE MODIFIER LES LIENS EN UTILISANT LA FONCTIONNALITE RESEARCH DE VSCODE !!! LE CODE SOURCE DU CDN QUARKO SERA BIENTOT DISPONIBLE

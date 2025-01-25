@@ -1,0 +1,30 @@
+/* Quarko CSS */
+@import url('../../../../../../../../../../../../../assets/css/popup.css');
+@import url('../../../../../../../../../../../../../assets/css/chat.css');
+@import url('../../../../../../../../../../../../../assets/css/admin.css');
+@import url('../../../../../../../../../../../../../assets/css/comments.css');
+
+
+body{
+    background-color: #1e1e1e;
+    color: rgb(255, 255, 255);
+}
+.title{
+    font-size: 5em;
+}
+.bastitle{
+    font-size: 2em;
+}
+.txt{
+    font-size: 1.9em;
+}
+.inline {
+    display: inline;
+}
+.pfp{
+    border-radius: 2em;
+}
+
+body.blurred {
+    filter: blur(90px); /* Valeur de flou en pixels */
+}

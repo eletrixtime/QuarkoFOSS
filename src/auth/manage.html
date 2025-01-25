@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/glob.css">
+
+
+</head>
+<body>
+  {% include 'base/navbar.html' %}
+
+
+<center>
+    <h1>Gérer mon compte</h1>
+    <hr>
+    <br>
+    <h1>Profile :</h1>
+    <form method="post" action="../manage">
+        <label for="bio">Bio :</label>
+        <input type="text" id="bio" name="bio" value="{{user_bio}}">
+        <br>
+        <br>
+        <label for="devmode">Mode développeur :</label>
+        <input type="checkbox" class="form-data" id="devmode" name="devmode",value="toggle" {% if devmode %}checked{% endif %}>
+        <button type="submit">Appliquer</button>     
+    </form>
+    <form method="post" action="../../manage/a/change_pp" enctype="multipart/form-data">
+        <p>Nouvelle photo de profile :</p>
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .webp" required>
+        <p>*Accepte : png, jpg, jpeg, webp</p>
+        <button type="submit">Envoyer</button>
+    </form>
+    <br>
+    <hr>
+    {% if premium == "1" %}
+        <h1>🚀 Fonctionnalités Premium</h1>
+        <form method="post" action="../../../manage/a/background" enctype="multipart/form-data">
+            <p>Nouvelle image de fond :</p>
+            <input type="file" name="file" accept=".png, .jpg, .jpeg, .webp" required>
+            <p>*Accepte : png, jpg, jpeg, webp</p>
+            <button type="submit">Envoyer</button>
+        </form>
+    {% else %}
+        <p>Tu souhaite avoir le premium ? contacte-nous sur <a href=" https://fr.tipeee.com/quarko-premium">Tipee !</a></p>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <hr>
+    <form method="post" action="../../../manage/a/delete_acc">
+        <h2>Supprimer mon compte</h2>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="checkbox" id="agree" name="agree" required>
+        je SUIS-SUR de SUPPRIMER ce COMPTE DéFINITEVEMNT !
+        <br>
+        <button type="submit">OK!</button>
+    </form>
+    <p>**PENSEZ A APPUYER SUR ENTRER LORS D'UNE MODIFICATION**</p>
+    <hr>
+        {% include 'base/footer.html' %}
+</center>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+</body>
+</html>

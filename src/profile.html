@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quarko >> {{username}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/glob.css">
+
+    <style>
+        .inline {
+            display: inline;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .post-author {
+            font-style: italic;
+            color: #888;
+        }
+        .post-content {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+    <center>
+        <img height="90" class="pfp inline"  src="https://cdn.eletrix.fr/{{pp_url}}">
+        <br>
+        <h1 class="inline">{{username | safe }}</h1>
+        <p class="inline">| </p>
+        {% if username == "boomerangbs" or "pluckylevrai" or "azeatre" or username == "eletrixtimelevrai" or username == "quarko.officiel" %}
+            <span title="Owner de Quarko" class="inline">👑</span>
+        {% endif %}       
+        {% if certified == "1" %}
+          <span title="Cette personne est certifié donc c'est le vrai !"class="inline">✅</span>
+        {% endif %}
+        {% if staff == "1" %}
+          <span title="Un BG du staff !" class="inline">🛡️</span>
+        {% endif %}
+        {% if premium == "1" %}
+          <span title="A Quarko-Premium !" class="inline">🚀</span>
+          <script>document.body.style.backgroundImage = "url('http://cdn.eletrix.fr/{{background_url}}')";document.body.style.backgroundSize = "cover";element.style.backgroundPosition = "center";document.body.classList.add("blurred");</script>
+        {% endif %}
+        <span title="Followers : {{followers}}" class="inline">Followers : {{followers}}</span>
+        {% if banned == "1" %}
+          <span title="Ce compte a été suspendue" class="inline">⛔</span>
+          <p>(compte suspendue)</p>
+        {% endif %}
+        {% if session['devmode'] == True %}
+            <p >ID : {{id}}</p>
+        {% endif %}
+        <p>" {{description}} "</p>
+        {% if 'logged' in session %}
+            {% if if_follow == True %}
+                <form method="post" action="../../../../../../users/{{id}}/follow"><button class="btn btn-primary" submit value="unfollow">Ne plus Suivre</button></form>
+            {% else %}
+                <form method="post" action="../../../../../../users/{{id}}/follow"><button class="btn btn-primary" submit value="follow">Suivre</button></form>
+            {% endif %}
+        {% endif %}
+        <hr>
+        <h2>Les posts de : {{username}}</h2>
+        {% for post in post|sort(attribute='views', reverse=true) %}
+          <div class="post">
+              
+              <div class="post-title"><a href="../../../../posts/view/{{post.id}}">{{ post.title | safe}}</a></div>
+              
+              {% if post.author or post.text or post.views %}
+                  <div class="post-author">Autheur : {{ post.author | safe }}</div>
+                  <div class="post-content">{{ post.text | safe }}</div>
+                  <div class="post-views">Views: {{ post.views }}</div>
+              {% else %}
+                  <div class="post-empty">Il se peux que ca sois vide :/</div>
+              {% endif %}
+              
+          </div>
+        {% endfor %}
+    </center>
+
+
+
+    {% include 'base/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

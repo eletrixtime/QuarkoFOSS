@@ -1,0 +1,9 @@
+requests
+flask
+sqlalchemy
+flask_cors
+flask_monitoringdashboard
+flask_socketio
+mailtrap
+sentry_sdk
+logtail-python

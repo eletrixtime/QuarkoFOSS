@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarko >> Admin Panel (W.I.P)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/glob.css">
+</head>
+<body>
+{% include 'base/error.html' %}  
+<admin_main>
+    <center>
+            <h1>Panel adminstrateur Quarko</h1>
+            <p>(connecter en tant que {{session["username"]}})</p>
+    </center>
+
+    <center>
+            <hr>
+            <h1>Panel Admin</h1>
+            <h2>Gestions des comptes :</h2>
+            <br>
+            <form method="post" action="../admin/ban">
+                <p>Bannisement de compte :</p>
+                <label for="email">ID du compte :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <label for="raison">Raison :</label>
+                <input type="text" id="raison" name="raison" required>
+                <p>Note : si le compte est déja banni cela changera la raison !</p>
+                <button type="submit">Bannir</button>
+            </form>
+            <br>
+            <form method="post" action="../admin/unban">
+                <p>Unban un compte :</p>
+                <label for="email">ID du compte :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <p>Note : si le compte n'est pas banni cela ne fera rien !</p>
+                <button type="submit">Unban</button>
+            </form>
+            <br>
+            <form method="post" action="../admin/delete_account">
+                <p>Supprimer un compte :</p>
+                <label for="id">ID du compte :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <input type="checkbox" id="agree" name="agree" required>
+                je SUIS-SUR de SUPPRIMER ce COMPTE DéFINITEVEMNT !
+                <br>
+                <button type="submit">Supprimer le compte ! (ATTENTION ABUS = SANCTION)</button>
+            </form>
+        
+            
+            <hr>
+            <h2>Gestions des posts :</h2>
+            <form method="post" action="../admin/delete_post">
+                <h3>Supprimer un post</h3>
+                <label for="email">ID du post (dispo dans l'URL) :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <button type="submit">Supprimer</button>
+            </form>
+            <br>
+            <hr>
+            <h2>Permissions :</h2>
+            <form method="post" action="../admin/permissions/admin">
+                <p>Permissions ADMIN :</p>
+                <label for="admin">ID de l'user (dispo dans le profile) :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <button type="submit">Mettre/Retirer admin</button>
+            </form>
+            <br>
+            <form method="post" action="../admin/permissions/certif">
+                <p>Certification :</p>
+                <label for="admin">ID de l'user (dispo dans le profile) :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <button type="submit">Mettre/Retirer la certif</button>
+            </form>
+            <br>
+            
+            <form method="post" action="../admin/permissions/premium">
+                <p>Premium :</p>
+                <label for="admin">ID de l'user (dispo dans le profile) :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <button type="submit">Mettre/Retirer le premium</button>
+            </form>  
+
+            <br>
+            <br>
+            <hr>
+            <form method="post" action="../../../admin/login_as/">
+                <p>Se connecter en tant qu'un utilisateur ! :</p>
+                <label for="admin">ID de l'user (dispo dans le profile) :</label>
+                <input type="text" id="id" name="id" required>
+                <br>
+                <button type="submit">Login as</button>
+            </form>
+            <br>
+            <br>
+            <form action="../admin/restart">
+                <p style="color:red">Redémarrer le serveur (ATTENTION ! ABUS = SANCTION)</p>
+                <br>
+                <input type="checkbox" id="agree" name="agree" required>
+                JE SUIS SUR DE REDÉMARRER LE SERVEUR 
+                <button style="color:red" type="submit">Redémarrer le serveur</button>
+            </form> 
+            <hr>
+            <a href="..">Retour</a>
+    </center>
+</admin_main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

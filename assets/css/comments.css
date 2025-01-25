@@ -1,0 +1,15 @@
+.comment_main {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.comment-author {
+    font-style: italic;
+    color: #888;
+}
+.comment-content {
+    margin-top: 10px;
+}
