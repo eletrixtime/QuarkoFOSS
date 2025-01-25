@@ -1,10 +1,10 @@
 # **QuarkoFOSS V4.2**
 
-> **Open Source Quarko**
+Code source de Quarko (FOSS)
 
 ## Qu'est-ce que Quarko ?
 
-> **Quarko** est un réseau social open-source (FOSS) conçu pour connecter les gens d'une manière simple et libre.
+**Quarko** est (ou plutot était) un réseau social comme Twitter
 
 ## Histoire
 
