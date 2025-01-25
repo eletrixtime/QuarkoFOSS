@@ -15,3 +15,6 @@ Code source de Quarko (FOSS)
 ## LICENSE
 
 > Ce projet est sous **licence MIT** (une copie complète de la licence est disponible dans le fichier LICENSE).
+
+
+### CERTAINES FONCTIONNALITÉS SONT DESACTIVÉES COMME LE CDN
