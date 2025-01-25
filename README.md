@@ -20,8 +20,6 @@ git clone https://github.com/EletrixTime/QuarkoFOSS && cd QuarkoFOSS && pip inst
 ```
 Et d'aller sur `http://localhost:80`
 
-COMPTE PAR DEFAULT : debug@debug.debug,IL FAUT METTRE MAILTRAP ET SENTRY POUR DE LA PROD
-
 ## LICENSE
 
 > Ce projet est sous **licence MIT** (une copie complète de la licence est disponible dans le fichier LICENSE).
