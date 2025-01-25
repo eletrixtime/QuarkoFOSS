@@ -1,4 +1,4 @@
-# **QuarkoFOSS V4.2**
+# **QuarkoSocialFOSS V4.2**
 
 Code source de Quarko (FOSS)
 
